@@ -49,8 +49,8 @@ const DirectChat = () => {
               <div className="mt-2 text-sm font-semibold">Lidiya Solomon</div>
               <div className="text-xs text-gray-500">Banner Designer</div>
               <div className="flex flex-row items-center mt-3">
-                <div className="flex flex-col justify-center w-8 h-4 bg-green-700 rounded-full">
-                  <div className="self-end w-3 h-3 mr-1 bg-white rounded-full"></div>
+                <div className="flex justify-center w-4 h-4 bg-white rounded-full">
+                  <div className="m-auto justify-center w-3 h-3 bg-green-700 rounded-full"></div>
                 </div>
                 <div className="ml-1 text-xs leading-none">Active</div>
               </div>
