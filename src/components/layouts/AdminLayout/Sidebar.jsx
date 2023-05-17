@@ -111,7 +111,7 @@ const Sidebar = () => {
           href="/admin"
           className="flex items-center space-x-2 text-white group hover:text-white"
         >
-          <img src="/images/white_logo.png" alt="logo" width="80" />
+          <img src="/images/logo.png" alt="logo" width="80" />
         </Link>
       </nav>
 

@@ -1,18 +1,18 @@
 export const allGroups = [
   {
     name: "group 1",
-    type: "department",
+    type: "UX/UI Design",
   },
   {
     name: "group 2",
-    type: "project",
+    type: "Front-end Developement",
   },
   {
     name: "group 3",
-    type: "project",
+    type: "pBack-end Development",
   },
   {
     name: "group 4",
-    type: "department",
+    type: "Examiners",
   },
 ];

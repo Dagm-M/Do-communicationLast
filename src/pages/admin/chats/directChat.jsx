@@ -7,7 +7,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 const DirectChat = () => {
   const [members, setMembers] = useState(allMembers);
   const [search, setSearch] = useState("");
-  // search for groups using group name
+  // search for members using member name
   useEffect(() => {
     const filteredData = allMembers.filter(
       (item) =>
@@ -108,7 +108,7 @@ const DirectChat = () => {
           </div>
           <div className="flex flex-col flex-auto h-full ml-6">
             <div className="flex flex-col flex-auto flex-shrink-0 h-full p-4 bg-white rounded-2xl">
-              <div className="flex flex-col h-full mb-4 overflow-x-auto">
+              <div className="flex flex-col h-full mb-4 overflow-x-auto overflow-y-auto">
                 <div className="flex flex-col h-full">
                   <div className="grid grid-cols-12 gap-y-2">
                     <div className="col-start-1 col-end-8 p-3 rounded-lg">
@@ -199,7 +199,7 @@ const DirectChat = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> 
               <div className="flex flex-row items-center w-full h-16 px-4 bg-white rounded-xl">
                 <div>
                   <button className="flex items-center justify-center text-gray-400 hover:text-gray-600">

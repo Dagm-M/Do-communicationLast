@@ -52,7 +52,7 @@ const AddMember = () => {
                   </div>
 
                   <div className="md:col-span-3">
-                    <label for="Gender">Priority</label>
+                    <label for="priority">Priority</label>
                     <select className="h-10 border mt-1 rounded px-4 w-full bg-gray-50">
                       <option value="null">Select priority</option>
                       <option value="h">High</option>
@@ -62,7 +62,7 @@ const AddMember = () => {
                   </div>
 
                   <div className="md:col-span-3">
-                    <label for="state">Start Date</label>
+                    <label for="startDate">Start Date</label>
                     <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
                     <input type="date"
                         onfocus="(this.type='date')" name="startDate"
@@ -73,7 +73,7 @@ const AddMember = () => {
                   </div>
 
                   <div className="md:col-span-3">
-                    <label for="state">Due Date</label>
+                    <label for="dueDate">Due Date</label>
                     <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
                     <input type="date"
                         onfocus="(this.type='date')" name="dueDate"
