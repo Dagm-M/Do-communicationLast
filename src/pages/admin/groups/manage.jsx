@@ -30,7 +30,7 @@ const ManageGroup = () => {
   useEffect(() => {
     const filteredData = allGroups.filter(
       (item) =>
-        item.name && item.name.toLowerCase().includes(search.toLowerCase()) || item.type && item.type.toLowerCase().includes(search.toLowerCase())
+        item.name && item.name.toLowerCase().includes(search.toLowerCase()) || item.type && item.type.toLowerCase().includes(search.toLowerCase()) || item.projectManager.toLowerCase().includes(search.toLowerCase())
     );
 
     if (search) {
@@ -50,6 +50,10 @@ const ManageGroup = () => {
       name: "Type",
       selector: (row) => row.type,
     },
+    {
+      name: "Project Manager",
+      selector: (row) => row.projectManager,
+    }
   ];
 
   const handleRowSelected = useCallback((state) => {

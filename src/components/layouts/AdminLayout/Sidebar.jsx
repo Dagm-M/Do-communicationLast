@@ -91,7 +91,7 @@ const Sidebar = () => {
     },
     {
       Icon: <TbReportAnalytics />,
-      url: "/admin/report",
+      url: "/admin/reports/reports",
       name: "Report",
     },
     {
