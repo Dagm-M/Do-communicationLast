@@ -1,6 +1,36 @@
 import AdminLayout from "@/components/layouts/AdminLayout/AdminLayout";
+import { allMembers } from "@/mock/members";
+import { useState } from "react";
+import Select from "react-select";
+import { toast } from "react-toastify";
 
-const AddGroup = () => {
+
+const CreateGroup = () => {
+
+  const [name,setName] = useState("");
+  const [type, setType] = useState("");
+  const [members, setMembers] = useState([]);
+  const [projectManager, setProjectManager] = useState([]);
+
+  const handleCreateGroup = () => {
+    console.log("create group");
+    const newGroup = {
+      name,
+      type, 
+      members,
+      projectManager,
+    };
+    
+    toast.success("Group created successfully");
+    console.log(newGroup);
+  };
+
+  const clearForm = () => {
+    setName("");
+    setType("");
+    setMembers([]);
+    setProjectManager([]);
+  };
 
   return(
     <AdminLayout>
@@ -18,55 +48,74 @@ const AddGroup = () => {
                 <div className="lg:col-span-2 ">
                 <div className="grid gap-6 gap-y-5 text-sm grid-cols-1 md:grid-cols-6">
                   <div className="md:col-span-3">
-                    <label for="full_name">Group Name</label>
+                    <label htmlFor="full_name">Group Name</label>
                     <input
                       type="text"
                       name="group_name"
                       id="group_name"
                       className="h-10 border mt-1 rounded px-4  w-full bg-gray-50"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
 
                   <div className="md:col-span-3">
-                    <label for="type">Department</label>
+                    <label htmlFor="type">Department</label>
                     <input
                       type="text"
                       name="department"
                       id="department"
                       className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value={type}
+                      onChange={(e) => setType(e.target.value)}
                     />
                   </div>
                   <div className="md:col-span-3">
-                    <label for="projectManager">Project Manager</label>
-                    <input
-                      type="text"
-                      name="project_manager"
-                      id="project_manager"
-                      className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      placeholder="assign project manager"
-                    />
+                    <label htmlFor="projectManager">Project Manager</label>
+                    <Select
+                        isMulti
+                        name="projectManager"
+                        options={allMembers.map((member) => {
+                          return { label: member.name, value: member.name};
+                        })}
+                        val
+                        onChange={(selectedProjectManager) => {
+                          setProjectManager(
+                            selectedProjectManager.map((projectManager) => projectManager.value)
+                          );
+                        }}
+                      />
                   </div>
                   <div className="md:col-span-3">
-                    <label for="members">Members</label>
-                    <input
-                      type="text"
-                      name="members"
-                      data-role="taginput"
-                      data-tag-trigger="Space"
-                      id="project_manager"
-                      className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      placeholder="add members"
-                    />
+                    <label htmlFor="members">Members</label>
+                    <Select
+                        isMulti
+                        name="members"
+                        options={allMembers.map((member) => {
+                          return { label: member.name, value: member.name };
+                        })}
+                        val
+                        onChange={(selectedMembers) => {
+                          setMembers(
+                            selectedMembers.map((member) => member.value)
+                          );
+                        }}
+                      />
                     
                   </div>
 
                   <div className="md:col-span-6 text-right ml-auto">
                     <div className="inline-flex items-end justify-end">
                       <div className="flex-row gap-10 pt-8">
-                        <button className="bg-gray-300 hover:bg-primary text-balck  font-bold py-2 px-4 mr-6 rounded border-b-2">
+                        <button 
+                          onClick={() => void clearForm()}
+                          className="bg-gray-300 hover:bg-primary text-balck  font-bold py-2 px-4 mr-6 rounded border-b-2">
                           Cancel
                         </button>
-                        <button className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded">
+                        <button 
+                          disabled={!name || !type || !members.length}
+                          className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded"
+                          onClick={() => void handleCreateGroup()}>
                           Create
                         </button>
                       </div>
@@ -83,4 +132,4 @@ const AddGroup = () => {
   );
 };
 
-export default AddGroup;
+export default CreateGroup;

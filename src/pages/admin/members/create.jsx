@@ -1,8 +1,13 @@
 import AdminLayout from "@/components/layouts/AdminLayout/AdminLayout";
-
+import { toast } from "react-toastify";
 const AddMember = () => {
+
+  const handleSubmit = () => {
+    console.log("submit");
+    toast.success("Member added successfully");
+  };
   
-  return (
+  return ( 
     <AdminLayout>
     <div className="min-h-screen p-6 pt-8 bg-gray-100 flex  justify-center">
       <div className="container max-w-screen-lg mx-auto">
@@ -102,7 +107,9 @@ const AddMember = () => {
                         <button className="bg-gray-300 hover:bg-primary text-balck  font-bold py-2 px-4 mr-6 rounded border-b-2">
                           Cancel
                         </button>
-                        <button className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded">
+                        <button className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded"
+                          onClick={() => void handleSubmit()}
+                        >
                           Submit
                         </button>
                       </div>

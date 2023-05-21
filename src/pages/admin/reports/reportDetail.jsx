@@ -13,7 +13,7 @@ return(
     <AdminLayout>
         <div className="flex items-center justify-between mb-4">
             <table className="flex bg-white rounded-lg">
-                <tr>
+            
                 
                     <div className="px-4 py-3 shadow-md">
                         <th className="text-left">
@@ -28,7 +28,7 @@ return(
                 </tr>
                     </div>
 
-                </tr>
+                
             </table>
         </div>
     </AdminLayout>

@@ -1,6 +1,15 @@
 import AdminLayout from "@/components/layouts/AdminLayout/AdminLayout";
-
+import { toast } from "react-toastify";
+import { allMembers } from "@/mock/members";
+import Select from "react-select";
+import { useState } from "react";
 const AddMember = () => {
+  const [members, setMembers] = useState([]);
+
+  const handleAssign = () => {
+    console.log("submit");
+    toast.success("Member added successfully");
+  };
   
   return (
     <AdminLayout>
@@ -42,13 +51,19 @@ const AddMember = () => {
 
                   <div className="md:col-span-3">
                     <label for="address">Assigned To:</label>
-                    <input
-                      type="text"
-                      name="assignedTo"
-                      id="assignedTo"
-                      className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      placeholder="search for a member or group"
-                    />
+                    <Select
+                        isMulti
+                        name="members"
+                        options={allMembers.map((member) => {
+                          return { label: member.name, value: member.name };
+                        })}
+                        val
+                        onChange={(selectedMembers) => {
+                          setMembers(
+                            selectedMembers.map((member) => member.value)
+                          );
+                        }}
+                      />
                   </div>
 
                   <div className="md:col-span-3">
@@ -89,7 +104,9 @@ const AddMember = () => {
                         <button className="bg-gray-300 hover:bg-primary text-balck  font-bold py-2 px-4 mr-6 rounded border-b-2">
                           Cancel
                         </button>
-                        <button className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded">
+                        <button className="bg-primary hover:bg-bold text-white font-bold py-2 px-4 rounded"
+                          onClick={() => handleAssign()}
+                        >
                           Assign
                         </button>
                       </div>

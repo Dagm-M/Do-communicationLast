@@ -72,7 +72,7 @@ const GroupChat = () => {
                   <AiOutlineSearch className="w-6 h-auto" />
                 </div>
               </div>
-              <div className="flex flex-col h-48 mt-4 -mx-2 space-y-1 overflow-y-auto">
+              <div className="flex flex-col h-56 mt-4 -mx-2 space-y-1 overflow-y-auto">
                 {groups.length > 0 &&
                   groups.map((group, index) => (
                     <button
@@ -99,11 +99,6 @@ const GroupChat = () => {
                     </div>
                   </div>
                 )}
-              </div>
-              <div className="flex items-center justify-center mt-6 text-xs">
-                <button className="flex items-center justify-center w-40 h-10 px-4 py-2 font-bold text-white rounded bg-primary hover:bg-bold">
-                  Load More
-                </button>
               </div>
             </div>
             {/* chat list end */}
